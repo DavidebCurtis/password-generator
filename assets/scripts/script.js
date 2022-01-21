@@ -122,10 +122,18 @@ var generateKey = function () {
   finalKey = newKey;
 };
 
+// final password to log
 var password = "";
+
+// clears password field
+var passwordText = document.querySelector("#password");
+var clear = function () {
+  passwordText.value = "test";
+};
 
 // Main Function
 document.getElementById("generate").addEventListener("click", function (start) {
+  clear();
   charFunc();
   console.log("The password length is ", characterAmount);
   upFunc();
@@ -133,14 +141,17 @@ document.getElementById("generate").addEventListener("click", function (start) {
   numFunc();
   specFunc();
   generateKey();
+  // loop and grab characters for password
   for (let index = 0; index < characterAmount; index++) {
     var rand = Math.floor(Math.random() * finalKey.length);
     password += finalKey[rand];
     if (index == characterAmount) {
       break;
     }
-    var passwordText = document.querySelector("#password");
+    // insert password in element
+    // var passwordText = document.querySelector("#password");
     passwordText.value = password;
+    // if no criteria was chosen, alert user they need to retry and pick at least one
     if (password === "") {
       alert("you bafoon pick at least one password criteria!");
       start();
