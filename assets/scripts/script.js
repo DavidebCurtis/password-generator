@@ -149,7 +149,7 @@ document.getElementById("generate").addEventListener("click", function (start) {
       alert(
         "You bafoon! You need to choose at least one criteria for the password."
       );
-      start();
+      break;
     }
   }
 });
