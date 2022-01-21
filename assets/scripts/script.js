@@ -15,6 +15,8 @@ var charFunc = function () {
   else if (charLength <= 128 || charLength >= 8) {
     // console.log("the number is between 8 and 128");
     characterAmount = charLength;
+  } else {
+    charFunc();
   }
 };
 
@@ -122,18 +124,9 @@ var generateKey = function () {
   finalKey = newKey;
 };
 
-// final password to log
-var password = "";
-
-// clears password field
-var passwordText = document.querySelector("#password");
-var clear = function () {
-  passwordText.value = "test";
-};
-
 // Main Function
 document.getElementById("generate").addEventListener("click", function (start) {
-  clear();
+  let password = "";
   charFunc();
   console.log("The password length is ", characterAmount);
   upFunc();
@@ -149,11 +142,13 @@ document.getElementById("generate").addEventListener("click", function (start) {
       break;
     }
     // insert password in element
-    // var passwordText = document.querySelector("#password");
+    let passwordText = document.querySelector("#password");
     passwordText.value = password;
     // if no criteria was chosen, alert user they need to retry and pick at least one
     if (password === "") {
-      alert("you bafoon pick at least one password criteria!");
+      alert(
+        "You bafoon! You need to choose at least one criteria for the password."
+      );
       start();
     }
   }
