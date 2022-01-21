@@ -142,7 +142,7 @@ document.getElementById("generate").addEventListener("click", function (start) {
     var passwordText = document.querySelector("#password");
     passwordText.value = password;
     if (password === "") {
-      alert("you bafoon pick some password criteria!");
+      alert("you bafoon pick at least one password criteria!");
       start();
     }
   }
